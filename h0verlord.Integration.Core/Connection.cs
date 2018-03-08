@@ -13,7 +13,8 @@ namespace h0verlord.Integration.Core
     {
         public enum ClientType
         {
-            Proxy
+            Proxy,
+            General
         }
         private string ProxyUrl { get; set; }
         private string Login { get; set; }
