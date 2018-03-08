@@ -5,11 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace h0verlord.Integration.Core.Objects
+namespace $rootnamespace$.Objects
 {
-    class SampleRequestObject
+    class SampleResponseObject
     {
         [DeserializeAs(Name = "id")]
         public int Id { get; set; }
+
     }
 }

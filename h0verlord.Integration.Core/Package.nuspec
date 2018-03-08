@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>h0verlord.Integration.Core</id>
+    <version>1.0.0-alpha</version>
+    <description>Basic Framework for creating integration tests of Rest API services with Restsharp.</description>
+    <authors>h0verlord</authors>
+    <projectUrl>https://gitlab.com/actumqa/h0verlord.Integration.Core</projectUrl>
+    <iconUrl>https://gitlab.com/uploads/-/system/user/avatar/1370319/avatar.png</iconUrl>
+    <releaseNotes>
+      First version of the framework. Hope it won't blow up.
+    </releaseNotes>
+    <copyright>2018</copyright>
+    <tags>h0verlord Automation Restsharp NUnit</tags>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.configuration" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="App.config" target="\content\App.config" />
+    <file src="*.cs" target="\content\" />
+    <file src="Objects\*.cs" target="\content\Objects\"/>
+    <file src="Objects\Requests\*.cs" target="\content\Objects\Requests\"/>
+    <file src="Tests\*.cs" target="\content\Tests\" />
+  </files>
+</package>

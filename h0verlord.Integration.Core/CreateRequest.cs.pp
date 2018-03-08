@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace h0verlord.Integration.Core
+namespace $rootnamespace$
 {
     public static class CreateRequest
     {
