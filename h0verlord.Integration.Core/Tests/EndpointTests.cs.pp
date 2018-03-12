@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using h0verlord.Integration.Core.Objects;
+using $rootnamespace$.Objects;
 
-namespace h0verlord.Integration.Core
+namespace $rootnamespace$
 {
     public class EndpointTests
     {
