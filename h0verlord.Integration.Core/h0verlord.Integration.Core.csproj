@@ -55,16 +55,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connection.cs" />
-    <Compile Include="CreateRequest.cs" />
-    <Compile Include="Objects\Requests\SampleRequestObject.cs" />
-    <Compile Include="Objects\SampleResponseObject.cs" />
+    <None Include="Connection.cs.pp" />
+    <None Include="CreateRequest.cs.pp" />
+    <None Include="Objects\Requests\SampleRequestObject.cs.pp" />
+    <None Include="Objects\SampleResponseObject.cs.pp" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Tests\EndpointTests.cs" />
+    <None Include="Tests\EndpointTests.cs.pp" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,7 +76,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Package.nuspec" />
+    <None Include="Package.nuspec">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
