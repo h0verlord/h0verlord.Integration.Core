@@ -2,25 +2,34 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>h0verlord.Integration.Core</id>
-    <version>1.0.0-alpha</version>
+    <version>1.0.1-alpha</version>
     <description>Basic Framework for creating integration tests of Rest API services with Restsharp.</description>
     <authors>h0verlord</authors>
     <projectUrl>https://gitlab.com/actumqa/h0verlord.Integration.Core</projectUrl>
     <iconUrl>https://gitlab.com/uploads/-/system/user/avatar/1370319/avatar.png</iconUrl>
     <releaseNotes>
-      First version of the framework. Hope it won't blow up.
+      Using dynamic namespaces for better usability after installation. Hopefully less messy and less exploding. 
     </releaseNotes>
     <copyright>2018</copyright>
     <tags>h0verlord Automation Restsharp NUnit</tags>
     <frameworkAssemblies>
       <frameworkAssembly assemblyName="System.configuration" />
     </frameworkAssemblies>
+    <dependencies>
+      <dependency id="NUnit" version="3.9.0" />
+      <dependency id="NUnit3TestAdapter" version="3.9.0" />
+      <dependency id="RestSharp" version="106.2.1" />
+      <dependency id="System.ValueTuple" version="4.4.0" />      
+    </dependencies>
   </metadata>
   <files>
+    <file src="readme.txt" target="" />
     <file src="App.config" target="\content\App.config" />
-    <file src="*.cs" target="\content\" />
-    <file src="Objects\*.cs" target="\content\Objects\"/>
-    <file src="Objects\Requests\*.cs" target="\content\Objects\Requests\"/>
-    <file src="Tests\*.cs" target="\content\Tests\" />
+    <file src="*.cs.pp" target="\content\" />
+    <file src="Objects\*.cs.pp" target="\content\Objects\"/>
+    <file src="Objects\Requests\*.cs.pp" target="\content\Objects\Requests\"/>
+    <file src="Tests\*.cs.pp" target="\content\Tests\" />
+    <file src="bin\Debug\h0verlord.Integration.Core.dll" target ="\lib\net461"/>
+    <file src="bin\Debug\h0verlord.Integration.Core.dll.config" target ="\lib\net461"/>
   </files>
 </package>
