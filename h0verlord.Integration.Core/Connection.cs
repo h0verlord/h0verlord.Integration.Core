@@ -1,13 +1,12 @@
-﻿using RestSharp;
+﻿using NUnit.Framework;
+using RestSharp;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace $rootnamespace$
+using System.Net;
+
+
+namespace h0verlord.Integration.Core
 {
     class Connection
     {
@@ -68,8 +67,11 @@ namespace $rootnamespace$
         /// specified in separate methods for requests.</typeparam>
         /// <param name="request">Request variable of type 
         /// RestRequest</param>
+        /// <param name="code">HTTPStatusCode value that is expected to be
+        /// the response. If not specified, 200 is used.
+        /// </param>
         /// <returns></returns>
-        public T Execute<T>(RestRequest request) where T : new()
+        public T Execute<T>(RestRequest request, HttpStatusCode code = HttpStatusCode.OK) where T : new()
         {
             //Solves the issue with self-signed certificates.
             //Without this it throws an error about not being
@@ -78,6 +80,8 @@ namespace $rootnamespace$
                 (sender, certificate, chain, errors) => true;
 
             var response = Client.Execute<T>(request);
+            Assert.IsTrue(response.StatusCode.Equals(code),
+                "Unexpected StatusCode {0}, expected {1}", response.StatusCode, code);
 
             //Exception handling. There is a special 500 excpetion message,
             //because this error kept happening randomly at the time
@@ -87,18 +91,23 @@ namespace $rootnamespace$
                 const string invalidCredentials = "The credentials you entered are invalid";
                 throw new UnauthorizedAccessException(invalidCredentials);
             }
-            if (response.StatusCode == HttpStatusCode.InternalServerError)
-            {
-                const string message = "Resulted in Internal Server Error 500.";
-                throw new ApplicationException(message, response.ErrorException);
-            }
-            if (response.ErrorException != null || response.StatusCode != HttpStatusCode.OK)
-            {
-                const string message = "Error retrieving response from KB API.";
-                throw new ApplicationException(message, response.ErrorException);
-            }
+            //if (response.StatusCode == HttpStatusCode.InternalServerError)
+            //{
+            //    const string message = "Resulted in Internal Server Error 500.";
+            //    throw new ApplicationException(message, response.ErrorException);
+            //}
+            //if (response.ErrorException != null || response.StatusCode != HttpStatusCode.OK)
+            //{
+            //    const string message = "Error retrieving response from KB API.";
+            //    throw new ApplicationException(message, response.ErrorException);
+            //}
 
             return response.Data;
         }
+
+        //private bool CheckStatusCode<T>(IRestResponse<T> response) where T : new()
+        //{
+        //    return response.StatusCode.Equals(String.Empty); 
+        //}
     }
 }

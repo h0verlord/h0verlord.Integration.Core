@@ -1,14 +1,11 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using $rootnamespace$.Objects;
+using h0verlord.Integration.Core;
+using $rootNamespace$.Objects;
 
-namespace $rootnamespace$
+namespace $rootNamespace$.Tests
 {
-    public class EndpointTests
+    public class ExampleTests
     {
         [Test]
         public void When_CallEndpoint_Expect_DataReturned()
@@ -18,8 +15,9 @@ namespace $rootnamespace$
              * Verify that there are data returned.
              */
 
-            var response = CreateRequest.Get<SampleResponseObject>("endpoint");
+            var response = CreateRequest.Get<SampleResponseObject>("endpoint");			
             Assert.IsTrue(!response.Equals(String.Empty));
+
         }
     }
 }

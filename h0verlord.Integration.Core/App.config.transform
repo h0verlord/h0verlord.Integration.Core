@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <appSettings>
+    <add key="api" value="" />
+    <add key="proxy" value="" />
+    <add key="username" value="" />
+    <add key="password" value="" />
+    <add key="endpoint" value="" />    
+  </appSettings>  
+</configuration>
